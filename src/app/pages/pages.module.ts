@@ -4,7 +4,7 @@ import { PagesComponent } from './pages.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
-import {BlogModule} from "./blog/blog.module";
+import {BlogModule} from './blog/blog.module';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
