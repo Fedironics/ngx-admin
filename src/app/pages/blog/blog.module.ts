@@ -5,6 +5,6 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
   ],
-  declarations: []
+  declarations: [],
 })
 export class BlogModule { }
