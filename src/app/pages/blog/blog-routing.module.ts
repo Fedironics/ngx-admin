@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {BlogComponent} from "./blog.component";
-import {CreatePostComponent} from "./create-post/create-post.component";
-import {ViewPostComponent} from "./view-post/view-post.component";
-import {GridComponent} from "./grid/grid.component";
+import {BlogComponent} from './blog.component';
+import {CreatePostComponent} from './create-post/create-post.component';
+import {ViewPostComponent} from './view-post/view-post.component';
+import {GridComponent} from './grid/grid.component';
 
 
 const routes: Routes = [{
@@ -15,10 +15,10 @@ const routes: Routes = [{
     }, {
         path: 'view/:id',
         component: ViewPostComponent,
-    },{
+    }, {
         path: 'grid',
         component: GridComponent,
-    },{
+    }, {
         path: '',
         component: GridComponent,
     },

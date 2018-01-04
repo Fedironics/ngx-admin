@@ -13,8 +13,9 @@ import { GridComponent } from './grid/grid.component';
   imports: [
     CommonModule,
       ThemeModule,
-      BlogRoutingModule
+      BlogRoutingModule,
   ],
-  declarations: [ BlogComponent, CreatePostComponent, ViewPostComponent, ViewCommentsComponent, AddCommentComponent, GridComponent ],
+  declarations: [ BlogComponent, CreatePostComponent, ViewPostComponent,
+      ViewCommentsComponent, AddCommentComponent, GridComponent ],
 })
 export class BlogModule { }
