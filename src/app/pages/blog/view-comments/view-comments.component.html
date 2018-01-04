@@ -1,21 +1,19 @@
-<nb-card *ngFor="let comment of comments">
-  <nb-card-body>
-    <div class="action-groups-header">
-      Action Groups
-    </div>
-    <nb-actions size="medium">
-      <nb-action icon="nb-menu"></nb-action>
-      <nb-action icon="nb-search"></nb-action>
-      <nb-action icon="nb-email"></nb-action>
-      <nb-action disabled icon="nb-notifications"></nb-action>
-      <nb-action>
-        <nb-user name="Han Solo"></nb-user>
-      </nb-action>
-      <nb-action icon="nb-gear"></nb-action>
-    </nb-actions>
-  </nb-card-body>
-</nb-card>
+<div class="row container-fluid">
+  <nb-card class="col-lg-12" *ngFor="let comment of comments">
+    <nb-card-body>
+      <div class="action-groups-header">
+        <nb-action>
+          <nb-user name="Han Solo"></nb-user>
+        </nb-action>
+      </div>
+
+      <p>
+        This is the body of the comment by sos sos sperson
+      </p>
+    </nb-card-body>
+  </nb-card>
 
 
 
-<ngx-add-comment></ngx-add-comment>
+  <ngx-add-comment class="col-lg-12"></ngx-add-comment>
+</div>
