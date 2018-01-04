@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-comments.component.scss']
 })
 export class ViewCommentsComponent implements OnInit {
-
+private comments =[
+    'ljljjlk',
+    'mmky lj j',
+    'kjljljkjklj',
+]
   constructor() { }
 
   ngOnInit() {
