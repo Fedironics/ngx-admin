@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-view-comments',
+  selector: 'ngx-view-comments',
   templateUrl: './view-comments.component.html',
   styleUrls: ['./view-comments.component.scss']
 })

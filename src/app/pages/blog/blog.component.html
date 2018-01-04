@@ -1,4 +1,5 @@
-<div>
+<div class="row container-fluid">
+<div class="col-lg-4" *ngFor="let post of posts" >
 <nb-card size="medium" >
   <nb-card-body>
     <div class="picture" style.background-image="url('assets/images/kitten-{{currentTheme}}.png')"></div>
@@ -29,4 +30,5 @@
     </a>
   </nb-card-footer>
 </nb-card>
+</div>
 </div>
