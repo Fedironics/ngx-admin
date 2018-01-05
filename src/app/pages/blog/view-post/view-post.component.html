@@ -1,14 +1,14 @@
 <div class="row container-fluid">
-    <nb-card size="medium" >
+    <nb-card size="medium" class="col-lg-12" >
       <nb-card-body>
-        <div class="picture" style.background-image="url('assets/images/kitten-cosmic.png')"></div>
+        <div class="picture" style.background-image="url('http://www.publicdomainpictures.net/pictures/20000/velka/green-nature.jpg')"></div>
 
         <div class="details">
           <div class="title">
-            React Native UI Kitten
+            {{(post | async)?.title}}
           </div>
           <div class="description">
-            React Native UI Kitten is a framework that contains a set of commonly used UI components styled in a similar way. The most awesome thing: you can change themes on the fly by just passing a different set of variables. 100% native. Give our kitten a try!
+            {{(post | async)?.body}}
           </div>
         </div>
       </nb-card-body>
