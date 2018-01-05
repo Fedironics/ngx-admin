@@ -16,13 +16,12 @@ export class ViewPostComponent implements OnInit {
 
   constructor(db: AngularFireDatabase, private activatedRoute: ActivatedRoute) {
     this.db = db;
-      this.post = db.object('blog/-KyhJjCVeV6B8BuDSVrR').valueChanges();
   }
 
   ngOnInit() {
     this.activatedRoute.params.map(params => params['id']).subscribe((id)=> this.id = id);
     console.log(this.id);
-
+      this.post = this.db.object('blog/'+this.id).valueChanges();
   }
 
 }
