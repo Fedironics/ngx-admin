@@ -9,10 +9,13 @@ import { NgxLogoutComponent } from './@theme/components/auth/logout/logout.compo
 import { NgxRequestPasswordComponent } from './@theme/components/auth/request-password/request-password.component';
 import { NgxResetPasswordComponent } from './@theme/components/auth/reset-password/reset-password.component';
 import { NbAuthComponent } from '@nebular/auth';
+import { AuthGuard } from './auth-guard.service';
 
 
 const routes: Routes = [
-  { path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule' },
+  { path: 'pages',
+      canActivate: [AuthGuard],
+      loadChildren: 'app/pages/pages.module#PagesModule' },
   {
     path: 'auth',
     component: NbAuthComponent,
