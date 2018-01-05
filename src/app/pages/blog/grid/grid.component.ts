@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import { Post } from '../../../models/post';
 
 @Component({
     selector: 'ngx-grid',
@@ -9,14 +10,15 @@ import { Observable } from 'rxjs/Observable';
     styleUrls: ['./grid.component.scss'],
 })
 export class GridComponent implements OnInit, OnDestroy {
-  public posts: Observable<any[]>;
+  public posts: Observable<Post[]>;
     currentTheme: string;
     themeSubscription: any;
     constructor(private themeService: NbThemeService, db: AngularFireDatabase) {
         this.themeSubscription = this.themeService.getJsTheme().subscribe(theme => {
             this.currentTheme = theme.name;
         });
-        this.posts = db.list('blog').valueChanges();
+        this.posts = db.list<Post>('blog').valueChanges();
+        console.log(this.posts);
     }
 
 
