@@ -3,7 +3,6 @@
  * Copyright Akveo. All Rights Reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
-import * as firebase from "firebase";
 
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
@@ -20,6 +19,6 @@ export const environment = {
         databaseURL: 'https://imeter-f2c7a.firebaseio.com',
         projectId: 'imeter-f2c7a',
         storageBucket: 'imeter-f2c7a.appspot.com',
-        messagingSenderId: '640201853896'
+        messagingSenderId: '640201853896',
     },
 };

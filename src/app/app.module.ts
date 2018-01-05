@@ -16,7 +16,7 @@ import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from "angularfire2/database"
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 
 @NgModule({

@@ -8,7 +8,6 @@ import { ViewCommentsComponent } from './view-comments/view-comments.component';
 import { AddCommentComponent } from './view-comments/add-comment/add-comment.component';
 import {BlogRoutingModule} from './blog-routing.module';
 import { GridComponent } from './grid/grid.component';
-import { BlogService } from '../../@core/data/blog.service';
 
 @NgModule({
     imports: [
@@ -16,7 +15,7 @@ import { BlogService } from '../../@core/data/blog.service';
         ThemeModule,
         BlogRoutingModule,
     ],
-    providers: [ BlogService ],
+    providers: [ ],
     declarations: [ BlogComponent, CreatePostComponent, ViewPostComponent,
         ViewCommentsComponent, AddCommentComponent, GridComponent ],
 })
