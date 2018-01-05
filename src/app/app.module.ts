@@ -15,22 +15,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpModule,
-    AppRoutingModule,
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from "angularfire2/database"
+import { environment } from '../environments/environment';
 
-    NgbModule.forRoot(),
-    ThemeModule.forRoot(),
-    CoreModule.forRoot(),
-  ],
-  bootstrap: [AppComponent],
-  providers: [
-    { provide: APP_BASE_HREF, useValue: '/' },
-  ],
+@NgModule({
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpModule,
+        AppRoutingModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule,
+        NgbModule.forRoot(),
+        ThemeModule.forRoot(),
+        CoreModule.forRoot(),
+    ],
+    bootstrap: [AppComponent],
+    providers: [
+        { provide: APP_BASE_HREF, useValue: '/' },
+    ],
 })
 export class AppModule {
 }
