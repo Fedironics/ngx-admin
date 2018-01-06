@@ -148,7 +148,7 @@ export class NgxLoginComponent {
         this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then( result => {
             this.verifyLogin(result.user);
         }).catch( err => {
-            this.messages.push(err.message);
+            this.errors.push(err.message);
             this.submitted = false;
         });
     }
@@ -157,7 +157,7 @@ export class NgxLoginComponent {
         this.afAuth.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider()).then( result => {
             this.verifyLogin(result.user);
         }).catch( err => {
-            this.messages.push(err.message);
+            this.errors.push(err.message);
             this.submitted = false;
         });
     }
