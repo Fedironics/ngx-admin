@@ -16,14 +16,14 @@ export class GridItemComponent implements OnInit {
     ngOnInit() {
     }
 
-    selectPost(){
 
-    }
     favoritePost(){
 
     }
+
     viewPost(){
         console.log(this.post);
+
 
     }
 

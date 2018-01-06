@@ -1,28 +1,29 @@
 <div xmlns="http://www.w3.org/1999/html">
-  <nb-card size="medium" >
-    <nb-card-body>
-      <div class="picture" style.background-image="url('{{post.featuredImage}}')"></div>
+    <nb-card size="medium" >
+        <nb-card-body>
+            <!--<div class="picture" style.background-image="url('{{post.featuredImage}}')">-->
+                <img src="{{post.featuredImage}}" class="picture block img-responsive" alt="{{post.title}}"/>
+            <!--</div>-->
+            <div class="details">
+                <div (click)="viewPost()" class="title">
+                    {{post.title}}
+                </div>
+                <div class="description">
+                    {{post.description}}
+                </div>
+            </div>
+        </nb-card-body>
 
-      <div class="details">
-        <div (click)="viewPost()" class="title">
-          {{post.title}}
-        </div>
-        <div class="description">
-          {{post.description}}
-        </div>
-      </div>
-    </nb-card-body>
 
-
-    <nb-card-footer>
-     <a (click)="favoritePost()">
-       <small>{{post.commentCount}}</small>
-        <i class="ion-ios-chatboxes"></i>
-      </a>
-      <a (click)="viewPost()">
-        <small>{{post.views}}</small>
-        <i class="ion-ios-eye"></i>
-      </a>
-    </nb-card-footer>
-  </nb-card>
+        <nb-card-footer>
+            <a (click)="favoritePost()">
+                <small>{{post.commentCount}}</small>
+                <i class="ion-ios-chatboxes"></i>
+            </a>
+            <a (click)="viewPost()">
+                <small>{{post.views}}</small>
+                <i class="ion-ios-eye"></i>
+            </a>
+        </nb-card-footer>
+    </nb-card>
 </div>

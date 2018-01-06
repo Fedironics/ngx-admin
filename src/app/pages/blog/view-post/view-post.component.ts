@@ -25,9 +25,9 @@ export class ViewPostComponent implements OnInit {
 
     ngOnInit() {
         this.activatedRoute.params.map(params => params['id']).subscribe((id)=> this.id = id);
-        console.log(this.id);
         this.postRef = this.db.object('blog/'+this.id);
-        this.post=  this.postRef.valueChanges();
+        console.log(this.id);
+        this.post =  this.postRef.valueChanges();
         console.log(this.post);
         this.postRef.snapshotChanges().subscribe(action => {
             console.log(action.type);

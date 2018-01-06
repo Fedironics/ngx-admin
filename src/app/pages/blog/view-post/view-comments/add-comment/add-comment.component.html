@@ -3,9 +3,9 @@
   <nb-card-body>
     <form>
       <div class="form-group">
-        <textarea class="form-control" placeholder="Comment"></textarea>
+        <textarea ngModel name="comment" class="form-control" placeholder="Comment"></textarea>
       </div>
-      <button type="submit" class="btn btn-success">Post</button>
+      <button (click)="submitComment()" type="submit" class="btn btn-success">Post</button>
     </form>
   </nb-card-body>
 </nb-card>
