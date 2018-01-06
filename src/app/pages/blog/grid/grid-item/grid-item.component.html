@@ -1,13 +1,11 @@
-<div class="col-lg-4" *ngFor="let post of posts | async " >
+<div xmlns="http://www.w3.org/1999/html">
   <nb-card size="medium" >
     <nb-card-body>
       <div class="picture" style.background-image="url('{{post.featuredImage}}')"></div>
 
       <div class="details">
-        <div class="title">
-          <a href="#/pages/blog/view/{{post.key}}">
-            {{post.title}}
-          </a>
+        <div (click)="viewPost()" class="title">
+          {{post.title}}
         </div>
         <div class="description">
           {{post.description}}
@@ -17,17 +15,13 @@
 
 
     <nb-card-footer>
-      <a href="#/pages//blog/create-post">
-        <i class="ion-ios-world"></i>
+     <a (click)="favoritePost()">
+       <small>{{post.commentCount}}</small>
+        <i class="ion-ios-chatboxes"></i>
       </a>
-      <a href="#/pages/blog/view/54">
-        <i class="ion-social-apple"></i>
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=com.akveo.kittenTricks" target="_blank">
-        <i class="ion-social-android"></i>
-      </a>
-      <a href="https://github.com/akveo/react-native-ui-kitten" target="_blank">
-        <i class="ion-social-github"></i>
+      <a (click)="viewPost()">
+        <small>{{post.views}}</small>
+        <i class="ion-ios-eye"></i>
       </a>
     </nb-card-footer>
   </nb-card>

@@ -1,22 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { Component, Input, OnInit } from '@angular/core';
 import { Post } from '../../../../models/post';
 import { Observable } from 'rxjs/Observable';
-
+import { Router } from '@angular/router';
 @Component({
-  selector: 'ngx-grid-item',
-  templateUrl: './grid-item.component.html',
-  styleUrls: ['./grid-item.component.scss'],
+    selector: 'ngx-grid-item',
+    templateUrl: './grid-item.component.html',
+    styleUrls: ['./grid-item.component.scss'],
 })
 export class GridItemComponent implements OnInit {
-    public posts: Observable<Post[]>;
+    @Input('post') post: Observable<Post>;
 
-    constructor( db: AngularFireDatabase) {
+    constructor(public router: Router) {
 
-        this.posts = db.list<Post>('blog').valueChanges();
-        console.log(this.posts);
     }
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
+
+    selectPost(){
+
+    }
+    favoritePost(){
+
+    }
+    viewPost(){
+        console.log(this.post);
+
+    }
 
 }

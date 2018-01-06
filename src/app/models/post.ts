@@ -8,5 +8,6 @@ export class Post {
     public views?: number;
     public description?: string;
     public comments?: Comment[];
+    public commentCount?: number;
     public user?: User;
 }
