@@ -12,7 +12,7 @@ import { User } from '../../../../../models/user';
     styleUrls: ['./add-comment.component.scss'],
 })
 export class AddCommentComponent implements OnInit {
-    public comment: string = 'my comment from model';
+    public comment: string ;
     public commentObj: Comment;
     public user: User;
 
@@ -26,9 +26,10 @@ export class AddCommentComponent implements OnInit {
         console.log('blog/'+this.id+'/comments');
         this.afAuth.auth.onAuthStateChanged( user => {
             if (user) {
-                console.log(user);
                 this.user = new User(user.displayName,user.email,user.photoURL,user.phoneNumber, user.uid);
                 this.commentObj = new Comment(this.user, this.comment, this.id);
+
+                console.log(this.commentObj);
                 commentRef.push(this.commentObj).then( res => {
                     this.comment = '';
                     console.log('comment added successfully');

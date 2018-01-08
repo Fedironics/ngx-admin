@@ -1,34 +1,35 @@
 <div class="row container-fluid">
-    <nb-card size="medium" class="col-lg-12" >
+    <nb-card size="large" class="col-lg-12" >
       <nb-card-body>
-        <div class="picture" style.background-image="url('http://www.publicdomainpictures.net/pictures/20000/velka/green-nature.jpg')"></div>
+        <img src="{{( post | async )?.featuredImage}}" class="picture block img-responsive" alt="{{( post | async )?.title}}"/>
 
         <div class="details">
           <div class="title">
-            {{(post | async)?.title}}
-          </div>
-          <div class="description">
-            {{(post | async)?.body}}
+            {{( post | async )?.title}}
           </div>
         </div>
       </nb-card-body>
 
-
       <nb-card-footer>
-        <a href="#/pages//blog/create-post">
-          <i class="ion-ios-world"></i>
+        <a (click)="favoritePost()">
+          <small>{{post.commentCount}}</small>
+          <i class="ion-ios-chatboxes"></i>
         </a>
-        <a href="#/pages/blog/view/54">
-          <i class="ion-social-apple"></i>
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.akveo.kittenTricks" target="_blank">
-          <i class="ion-social-android"></i>
-        </a>
-        <a href="https://github.com/akveo/react-native-ui-kitten" target="_blank">
-          <i class="ion-social-github"></i>
+        <a (click)="viewPost()">
+          <small>{{post.views}}</small>
+          <i class="ion-ios-eye"></i>
         </a>
       </nb-card-footer>
     </nb-card>
-</div>
 
-<ngx-view-comments [id]="id" ></ngx-view-comments>
+  <nb-card class="col-lg-12" size="small">
+    <nb-card-header>
+      Description
+    </nb-card-header>
+    <nb-card-body [innerHTML]="( post | async )?.body" >
+
+    </nb-card-body>
+  </nb-card>
+
+  <ngx-view-comments class="col-lg-12" [id]="id"></ngx-view-comments>
+</div>

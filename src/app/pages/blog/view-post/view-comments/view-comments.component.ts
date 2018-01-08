@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { Comment } from '../../../../models/comment';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { User } from '../../../../models/user';
 
 @Component({
     selector: 'ngx-view-comments',
@@ -10,14 +11,23 @@ import { Comment } from '../../../../models/comment';
 })
 export class ViewCommentsComponent implements OnInit {
     @Input('id') id: string;
+    public comments: Observable<Comment[]>;
 
-    public comments: Observable<Comment[]> ;
-    constructor(db: AngularFireDatabase) {
-        this.comments = db.list<Comment>('blog/'+ this.id + 'comments').valueChanges();
-        console.log(this.comments);
+    constructor(public db: AngularFireDatabase) {
+        // console.log('blog/'+this.id+'/comments');
+        // this.comments = [
+        //     new Comment(new User('Ekene From Comment','ekenemadunagu@yahoo.com','https://scontent.xx.fbcdn.net/v/t1.0-1/p100x100/24068276_892616910907583_8662983099272527286_n.jpg?oh=473d5e91b6f63cab7d6d0348065487d5&amp;oe=5AD7686E','08033332670','myuid'),'my Comment',this.id),
+        //     new Comment(new User('Ekene From Comment','ekenemadunagu@yahoo.com','https://scontent.xx.fbcdn.net/v/t1.0-1/p100x100/24068276_892616910907583_8662983099272527286_n.jpg?oh=473d5e91b6f63cab7d6d0348065487d5&amp;oe=5AD7686E&quot','08033332670','myuid'),'my Comment',this.id),
+        //     new Comment(new User('Ekene From Comment','ekenemadunagu@yahoo.com','https://scontent.xx.fbcdn.net/v/t1.0-1/p100x100/24068276_892616910907583_8662983099272527286_n.jpg?oh=473d5e91b6f63cab7d6d0348065487d5&amp;oe=5AD7686E','08033332670','myuid'),'my Comment',this.id),
+        //     new Comment(new User('Ekene From Comment','ekenemadunagu@yahoo.com','https://scontent.xx.fbcdn.net/v/t1.0-1/p100x100/24068276_892616910907583_8662983099272527286_n.jpg?oh=473d5e91b6f63cab7d6d0348065487d5&amp;oe=5AD7686E&quot','08033332670','myuid'),'my Comment',this.id),
+        //     new Comment(new User('Ekene From Comment','ekenemadunagu@yahoo.com','https://scontent.xx.fbcdn.net/v/t1.0-1/p100x100/24068276_892616910907583_8662983099272527286_n.jpg?oh=473d5e91b6f63cab7d6d0348065487d5&amp;oe=5AD7686E','08033332670','myuid'),'my Comment',this.id),
+        //     new Comment(new User('Ekene From Comment','ekenemadunagu@yahoo.com','https://scontent.xx.fbcdn.net/v/t1.0-1/p100x100/24068276_892616910907583_8662983099272527286_n.jpg?oh=473d5e91b6f63cab7d6d0348065487d5&amp;oe=5AD7686E&quot','08033332670','myuid'),'my Comment',this.id),
+        // ];
     }
 
     ngOnInit() {
+         this.comments = this.db.list('blog/'+this.id+'/comments').valueChanges();
+
     }
 
 }

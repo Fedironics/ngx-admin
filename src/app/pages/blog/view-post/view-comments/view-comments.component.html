@@ -1,5 +1,4 @@
-<div class="row container-fluid">
-  <nb-card class="col-lg-12" *ngFor="let comment of comments | async">
+ <nb-card class="col-lg-12" *ngFor="let comment of comments | async ">
     <nb-card-body>
       <div class="action-groups-header">
         <nb-action>
@@ -13,5 +12,4 @@
     </nb-card-body>
   </nb-card>
 
-  <ngx-add-comment class="col-lg-12"></ngx-add-comment>
-</div>
+  <ngx-add-comment [id]="id" class="col-lg-12"></ngx-add-comment>

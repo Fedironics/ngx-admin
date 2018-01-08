@@ -16,7 +16,6 @@ import { ActivatedRoute } from "@angular/router";
 export class ViewPostComponent implements OnInit {
     public id: string;
     public post: Observable<Post>;
-    public postRef: AngularFireObject<Post>;
     public db: AngularFireDatabase;
 
     constructor(db: AngularFireDatabase, private activatedRoute: ActivatedRoute) {
@@ -25,15 +24,7 @@ export class ViewPostComponent implements OnInit {
 
     ngOnInit() {
         this.activatedRoute.params.map(params => params['id']).subscribe((id)=> this.id = id);
-        this.postRef = this.db.object('blog/'+this.id);
-        console.log(this.id);
-        this.post =  this.postRef.valueChanges();
-        console.log(this.post);
-        this.postRef.snapshotChanges().subscribe(action => {
-            console.log(action.type);
-            console.log(action.key)
-            console.log(action.payload.val())
-        });
+        this.post = this.db.object('blog/'+this.id).valueChanges();
     }
 
 }
