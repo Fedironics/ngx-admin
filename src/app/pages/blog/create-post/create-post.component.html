@@ -1,3 +1,11 @@
-<p>
-  create-post works!
-</p>
+<nb-card>
+  <nb-card-header>
+    Create Blog Post
+  </nb-card-header>
+  <nb-card-body>
+    <ngx-tiny-mce></ngx-tiny-mce>
+  </nb-card-body>
+  <nb-card-footer>
+    <button type="submit" class="btn btn-success" (click)="submitComment()" [disabled]="processing">Post</button>
+  </nb-card-footer>
+</nb-card>
