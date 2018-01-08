@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class GridItemComponent implements OnInit {
     @Input('post') post: Observable<Post>;
+    @Input('id') id: string;
 
     constructor(public router: Router) {
 
@@ -23,8 +24,7 @@ export class GridItemComponent implements OnInit {
 
     viewPost(){
         console.log(this.post);
-
-
+        this.router.navigate(['pages/blog/view/'+ this.id]);
     }
 
 }
