@@ -1,11 +1,11 @@
-<nb-card>
+<nb-card class="col-lg-12">
   <nb-card-header>Comment On Post</nb-card-header>
   <nb-card-body>
     <form>
       <div class="form-group">
         <textarea [(ngModel)]="comment" name="comment" class="form-control" placeholder="Comment"></textarea>
       </div>
-      <button (click)="submitComment()" type="submit" class="btn btn-success">Post</button>
+      <button type="submit" class="btn btn-success" (click)="submitComment()" [disabled]="processing">Post</button>
     </form>
   </nb-card-body>
 </nb-card>

@@ -3,8 +3,8 @@ import {AngularFireDatabase, AngularFireObject} from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FormControl } from '@angular/forms'
 
-import { Comment } from '../../../../../models/comment';
-import { User } from '../../../../../models/user';
+import { Comment } from '../../../../models/comment';
+import { User } from '../../../../models/user';
 
 @Component({
     selector: 'ngx-add-comment',
@@ -15,13 +15,16 @@ export class AddCommentComponent implements OnInit {
     public comment: string ;
     public commentObj: Comment;
     public user: User;
+    public processing:boolean = false;
 
     @Input('id') id: string;
 
     constructor(public db: AngularFireDatabase, public afAuth: AngularFireAuth) {
 
     }
-    submitComment(){
+    submitComment() {
+    //TODO : increase the number of comments on the post here
+        this.processing = true;
         var commentRef = this.db.list('blog/'+this.id+'/comments');
         console.log('blog/'+this.id+'/comments');
         this.afAuth.auth.onAuthStateChanged( user => {
@@ -32,6 +35,7 @@ export class AddCommentComponent implements OnInit {
                 console.log(this.commentObj);
                 commentRef.push(this.commentObj).then( res => {
                     this.comment = '';
+                    this.processing = false;
                     console.log('comment added successfully');
                 });
             } else {
