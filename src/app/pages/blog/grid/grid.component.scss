@@ -1,0 +1,19 @@
+.example-container:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.example-container > div {
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.example-container > .btn-divided-checkbox-group {
+  flex-wrap: wrap;
+
+  > label {
+    flex-basis: 10%;
+    margin: 0 0.25rem 0.5rem 0;
+  }
+}
+
