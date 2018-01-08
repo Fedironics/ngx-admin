@@ -3,9 +3,9 @@
   <nb-card-body>
     <form>
       <div class="form-group">
-        <textarea [(ngModel)]="comment" name="comment" class="form-control" placeholder="Comment" [disabled]="processing"></textarea>
+        <textarea [(ngModel)]="comment" name="comment" class="form-control" placeholder="Comment" [disabled]="isProcessing"></textarea>
       </div>
-      <button type="submit" class="btn btn-success" (click)="submitComment()" [disabled]="processing">Post</button>
+      <button type="submit" class="btn btn-success" (click)="submitComment()" [disabled]="isProcessing">Post</button>
     </form>
   </nb-card-body>
 </nb-card>
