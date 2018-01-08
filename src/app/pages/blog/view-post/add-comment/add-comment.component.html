@@ -3,7 +3,7 @@
   <nb-card-body>
     <form>
       <div class="form-group">
-        <textarea [(ngModel)]="comment" name="comment" class="form-control" placeholder="Comment"></textarea>
+        <textarea [(ngModel)]="comment" name="comment" class="form-control" placeholder="Comment" [disabled]="processing"></textarea>
       </div>
       <button type="submit" class="btn btn-success" (click)="submitComment()" [disabled]="processing">Post</button>
     </form>
