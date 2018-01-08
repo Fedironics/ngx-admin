@@ -11,8 +11,6 @@ import { ActivatedRoute } from "@angular/router";
 })
 
 
-//TODO: refactor into different components I don't see it as an iminent change
-
 export class ViewPostComponent implements OnInit {
     public id: string;
     public post: Observable<Post>;
@@ -23,6 +21,7 @@ export class ViewPostComponent implements OnInit {
     }
 
     ngOnInit() {
+        //TODO : increase the number of views for this post here
         this.activatedRoute.params.map(params => params['id']).subscribe((id)=> this.id = id);
         this.post = this.db.object('blog/'+this.id).valueChanges();
     }
