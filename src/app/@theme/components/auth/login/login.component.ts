@@ -122,18 +122,19 @@ export class NgxLoginComponent {
     }
 
     login(): void {
-        this.errors = this.messages = [];
+        this.errors = [];
         this.submitted = true;
         this.afAuth.auth.signInWithEmailAndPassword(this.user.email,this.user.password).then( result => {
             this.verifyLogin(result.user);
         }).catch( err => {
-            this.messages.push(err.message);
+            this.errors.push(err.message);
             this.submitted = false;
         });
 
 
     }
     loginFacebook() {
+        this.errors = [];
         console.log('login button clicked');
         this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then( result => {
             console.log('signin successful');
@@ -144,6 +145,7 @@ export class NgxLoginComponent {
         });
     }
     loginGoogle(){
+        this.errors = [];
         console.log('login button clicked');
         this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then( result => {
             this.verifyLogin(result.user);
@@ -153,6 +155,7 @@ export class NgxLoginComponent {
         });
     }
     loginTwitter(){
+        this.errors = [];
         console.log('login button clicked');
         this.afAuth.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider()).then( result => {
             this.verifyLogin(result.user);
