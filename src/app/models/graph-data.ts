@@ -6,6 +6,7 @@ export class GraphData {
     public constructor(){
 
     }
+    
     public getData(key) {
     return  this[key];
     }

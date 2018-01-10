@@ -6,7 +6,6 @@ export class User {
     public uid: string;
     public photoURL: string;
     public isiMeter: boolean;
-    public iMeterData: iMeterData;
     public level: number;
     public phoneNumber: string;
     constructor(displayName: string, email: string, photoURL: string, phoneNumber: string, uid: string ){

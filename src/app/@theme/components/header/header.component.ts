@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
     photoURL: string ;
     displayName: string;
 
-    userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
+    userMenu = [{ title: 'Profile' }, { title: 'Log out'}];
 
     constructor(private sidebarService: NbSidebarService,
                 private menuService: NbMenuService,

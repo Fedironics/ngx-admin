@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../../../models/post';
 
 @Component({
   selector: 'ngx-create-post',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-post.component.scss'],
 })
 export class CreatePostComponent implements OnInit {
-
+public post: Post ;
   constructor() { }
 
   ngOnInit() {

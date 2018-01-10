@@ -3,6 +3,10 @@
     Create Blog Post
   </nb-card-header>
   <nb-card-body>
+    <div class="input-group">
+      <input type="text" [(ngModel)]="post.title" placeholder="Title" class="form-control" />
+    </div>
+    <br/>
     <ngx-tiny-mce></ngx-tiny-mce>
   </nb-card-body>
   <nb-card-footer>
