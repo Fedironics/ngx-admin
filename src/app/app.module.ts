@@ -20,6 +20,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 import { AuthGuard } from './auth-guard.service';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { UserService } from './@core/data/users.service';
 
 @NgModule({
     declarations: [AppComponent],
@@ -39,6 +40,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
         { provide: APP_BASE_HREF, useValue: '/' },
         AuthGuard,
         AngularFireAuth,
+        UserService,
     ],
 })
 export class AppModule {
