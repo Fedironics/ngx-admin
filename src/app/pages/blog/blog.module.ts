@@ -10,6 +10,7 @@ import { BlogRoutingModule } from './blog-routing.module';
 import { GridComponent } from './grid/grid.component';
 import { GridItemComponent } from './grid/grid-item/grid-item.component';
 import { FormsModule } from '@angular/forms';
+import { UploadService } from '../../@core/data/upload.service';
 
 @NgModule({
     imports: [
@@ -18,6 +19,8 @@ import { FormsModule } from '@angular/forms';
         BlogRoutingModule,
         FormsModule,
     ],
+
+  providers: [UploadService],
     declarations: [ BlogComponent, CreatePostComponent, ViewPostComponent,
         ViewCommentsComponent, AddCommentComponent, GridComponent, GridItemComponent ],
 })
