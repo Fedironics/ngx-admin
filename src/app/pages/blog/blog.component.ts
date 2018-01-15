@@ -7,14 +7,7 @@ import { NbThemeService } from '@nebular/theme';
     styleUrls: ['./blog.component.scss'],
 })
 export class BlogComponent implements OnInit, OnDestroy {
-    posts = [
-        { title: 'something' },
-        { title: 'something' },
-        { title: 'something' },
-        { title: 'something' },
-        { title: 'something' },
-        { title: 'something' },
-    ];
+
     currentTheme: string;
     themeSubscription: any;
     constructor(private themeService: NbThemeService) {
@@ -24,6 +17,7 @@ export class BlogComponent implements OnInit, OnDestroy {
     }
     ngOnInit() {
     }
+
     ngOnDestroy() {
         this.themeSubscription.unsubscribe();
     }
