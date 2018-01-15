@@ -4,12 +4,17 @@
   </nb-card-header>
   <nb-card-body>
     <div class="input-group">
-      <input type="text" [(ngModel)]="post.title" placeholder="Title" class="form-control" />
+      <input type="text" [ngModel]="post.title" placeholder="Title" class="form-control" />
     </div>
+    <br/>
+    <img src="{{post.featuredImage | async }}" class="picture block img-responsive" alt="" />
+    <button class="btn btn-hero-secondary" (click)="setImage()">Set Featured Image</button>
+    <input type="file" (change)="detectFiles($event)" name="featuredImage" />
+    <br/>
     <br/>
     <ngx-tiny-mce></ngx-tiny-mce>
   </nb-card-body>
   <nb-card-footer>
-    <button type="submit" class="btn btn-success" (click)="submitComment()" [disabled]="processing">Post</button>
+    <button type="submit" class="btn btn-success" (click)="update()" [disabled]="processing">Post</button>
   </nb-card-footer>
 </nb-card>
