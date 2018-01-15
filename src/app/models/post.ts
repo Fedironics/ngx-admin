@@ -10,4 +10,7 @@ export class Post {
     public comments?: Comment[];
     public commentCount?: number;
     public user?: User;
+    constructor(user: User) {
+        this.user = user;
+    }
 }
