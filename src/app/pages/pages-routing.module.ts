@@ -3,15 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FotaComponent } from './fota/fota.component';
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [{
-      path: 'dashboard',
-      component: DashboardComponent,
+    path: 'dashboard',
+    component: DashboardComponent,
   }, {
-      path: 'blog',
-      loadChildren : './blog/blog.module#BlogModule',
+    path: 'blog',
+    loadChildren: './blog/blog.module#BlogModule',
+  }, {
+    path: 'fota',
+    component: FotaComponent,
   }, {
     path: 'ui-features',
     loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
