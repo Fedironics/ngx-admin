@@ -14,6 +14,11 @@ export const MENU_ITEMS: NbMenuItem[] =
       link: '/pages/blog',
     },
     {
+      title: 'FOTA',
+      icon: 'nb-compose',
+      link: '/pages/fota',
+    },
+    {
       title: 'FEATURES',
       group: true,
     },
