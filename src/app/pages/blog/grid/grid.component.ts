@@ -30,19 +30,8 @@ export class GridComponent implements OnInit {
     }
 
     createPost() {
-        this.afAuth.auth.onAuthStateChanged(user => {
-            if (user) {
-                console.log(user);
-                this.user = new User(user.displayName,user.email, user.photoURL, user.phoneNumber, user.uid);
-                var key = this.postsRef.push(new Post(this.user)).key;
-                this.router.navigate(['pages/blog/create-post/' + key]);
-                // ...
-            } else {
-                //TODO user is signed out
-            }
-        });
-
-        //TODO : here create the post
+        var key = this.postsRef.push(new Post(this.user)).key;
+        this.router.navigate(['pages/blog/create-post/' + key]);
     }
 
 }

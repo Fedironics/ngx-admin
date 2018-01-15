@@ -18,13 +18,13 @@ export class GridItemComponent implements OnInit {
     }
 
 
-    favoritePost(){
+    favoritePost() {
 
     }
 
-    viewPost(){
+    viewPost() {
         console.log(this.post);
-        this.router.navigate(['pages/blog/view/'+ this.id]);
+        this.router.navigate(['pages/blog/view/' + this.id]);
     }
 
 }

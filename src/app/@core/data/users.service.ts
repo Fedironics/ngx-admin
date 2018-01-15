@@ -1,37 +1,45 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { User } from '../../models/user';
 import 'rxjs/add/observable/of';
 
 let counter = 0;
 
 @Injectable()
 export class UserService {
+  private user: User;
+  private isLogged: boolean = false;
+  constructor(private afAuth: AngularFireAuth, private router: Router) { }
 
-  private users = {
-    nick: { name: 'Nick Jones', picture: 'assets/images/nick.png' },
-    eva: { name: 'Eva Moor', picture: 'assets/images/eva.png' },
-    jack: { name: 'Jack Williams', picture: 'assets/images/jack.png', photoURL: 'http://www.publicdomainpictures.net/pictures/30000/velka/sun-nad-nature.jpg'},
-    lee: { name: 'Lee Wong', picture: 'assets/images/lee.png' },
-    alan: { name: 'Alan Thompson', picture: 'assets/images/alan.png' },
-    kate: { name: 'Kate Martinez', picture: 'assets/images/kate.png', photoURL: 'http://www.publicdomainpictures.net/pictures/30000/velka/sun-nad-nature.jpg' },
-  };
-
-  private userArray: any[];
-
-  constructor() {
-    // this.userArray = Object.values(this.users);
+  ngOnInit() {
+    this.afAuth.auth.onAuthStateChanged(user => {
+      if (user) {
+        console.log(user);
+        this.isLogged = true;
+        this.user = new User(user.displayName, user.email, user.photoURL, user.phoneNumber, user.uid);
+      } else {
+        //TODO user is signed out
+        console.log('user is signed out ');
+      }
+    });
+  }
+  getUsers() {
+    //  return Observable.of(this.users);
   }
 
-  getUsers(): Observable<any> {
-    return Observable.of(this.users);
+  getUserArray() {
+    // return Observable.of(this.userArray);
+  }
+  goToLogin() {
+    this.router.navigate(['auth/login']);
   }
 
-  getUserArray(): Observable<any[]> {
-    return Observable.of(this.userArray);
-  }
-
-  getUser(): Observable<any> {
-    counter = (counter + 1) % this.userArray.length;
-    return Observable.of(this.userArray[counter]);
+  getUser(): Observable<User> {
+    if (!this.isLogged) {
+      this.goToLogin();
+    }
+    return Observable.of(this.user);
   }
 }
