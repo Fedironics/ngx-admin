@@ -1,4 +1,4 @@
-import { ElectricYearly } from './electric-yearly';
+import { ElectricYearly } from './electric-yearly.model';
 
 export class iMeterData {
     public electricYearly: ElectricYearly[];

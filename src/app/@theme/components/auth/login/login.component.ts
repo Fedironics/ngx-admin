@@ -12,7 +12,7 @@ import { getDeepFromObject } from '@nebular/auth/helpers';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
-import { User } from '../../../../models/user';
+import { User } from '../../../../models/user.model';
 
 
 @Component({

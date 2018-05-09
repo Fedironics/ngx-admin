@@ -3,6 +3,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NbMenuService, NbSidebarService } from '@nebular/theme';
 import { UserService } from '../../../@core/data/users.service';
 import { AnalyticsService } from '../../../@core/utils/analytics.service';
+import { User } from '../../../models/user.model';
+
 
 @Component({
     selector: 'ngx-header',
@@ -14,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
     @Input() position = 'normal';
 
-    user: any;
+    user: User;
     photoURL: string;
     displayName: string;
 

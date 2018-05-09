@@ -1,5 +1,5 @@
-import { Comment } from './comment';
-import { User } from './user';
+import { Comment } from './comment.model';
+import { User } from './user.model';
 export class Post {
     public key?: string;
     public title: string;

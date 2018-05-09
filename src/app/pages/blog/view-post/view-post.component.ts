@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularFireDatabase, AngularFireObject} from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
-import { Post } from '../../../models/post';
+import { Post } from '../../../models/post.model';
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -14,10 +14,8 @@ import { ActivatedRoute } from "@angular/router";
 export class ViewPostComponent implements OnInit {
     public id: string;
     public post: Observable<Post>;
-    public db: AngularFireDatabase;
 
-    constructor(db: AngularFireDatabase, private activatedRoute: ActivatedRoute) {
-        this.db = db;
+    constructor(private db: AngularFireDatabase, private activatedRoute: ActivatedRoute) {
     }
 
     ngOnInit() {

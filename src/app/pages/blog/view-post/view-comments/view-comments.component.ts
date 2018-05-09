@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Comment } from '../../../../models/comment';
+import { Comment } from '../../../../models/comment.model';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { User } from '../../../../models/user';
+import { User } from '../../../../models/user.model';
 
 @Component({
     selector: 'ngx-view-comments',

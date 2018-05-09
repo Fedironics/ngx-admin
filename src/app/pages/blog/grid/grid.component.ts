@@ -5,9 +5,9 @@ import * as firebase from 'firebase/database';
 import DataSnapshot = firebase.database.DataSnapshot;
 import { Router } from '@angular/router';
 import { AngularFireList } from 'angularfire2/database/interfaces';
-import { Post } from '../../../models/post';
-import { User } from '../../../models/user';
+import { Post } from '../../../models/post.model';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { UserService } from '../../../@core/data/users.service';
 
 @Component({
     selector: 'ngx-grid',
@@ -19,9 +19,8 @@ export class GridComponent implements OnInit {
     public paginator: { left: boolean, right: boolean } = { left: true, right: false };
     public posts: Observable<AngularFireAction<DataSnapshot>[]>;
     public postsRef: AngularFireList<any>;
-    public user: User;
     themeSubscription: any;
-    constructor(private db: AngularFireDatabase, private router: Router, private afAuth: AngularFireAuth) { }
+    constructor(private db: AngularFireDatabase, private router: Router, private userService: UserService) { }
 
     ngOnInit() {
         this.postsRef = this.db.list('blog');
@@ -30,7 +29,7 @@ export class GridComponent implements OnInit {
     }
 
     createPost() {
-        var key = this.postsRef.push(new Post(this.user)).key;
+        var key = this.postsRef.push(new Post(this.userService.getUser())).key;
         this.router.navigate(['pages/blog/create-post/' + key]);
     }
 

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { User } from '../../models/user';
+import { User } from '../../models/user.model';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
-import { iMeterData } from '../../models/imeter-data';
+import { iMeterData } from '../../models/imeter-data.model';
 import { AngularFireObject } from 'angularfire2/database/interfaces';
 
 @Component({

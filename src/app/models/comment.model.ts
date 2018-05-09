@@ -1,4 +1,4 @@
-import { User } from './user';
+import { User } from './user.model';
 
 export class Comment {
     public user: User;

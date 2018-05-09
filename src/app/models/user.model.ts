@@ -1,4 +1,4 @@
-import { iMeterData } from './imeter-data';
+import { iMeterData } from './imeter-data.model';
 
 export class User {
     public displayName: string;

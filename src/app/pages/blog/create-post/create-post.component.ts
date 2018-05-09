@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
-import { Post } from '../../../models/post';
-import { Upload } from '../../../models/upload';
+import { Post } from '../../../models/post.model';
+import { Upload } from '../../../models/upload.model';
 import { ActivatedRoute } from "@angular/router";
 import { AngularFireList } from 'angularfire2/database/interfaces';
 import { UploadService } from '../../../@core/data/upload.service';
@@ -11,11 +11,10 @@ import { UploadService } from '../../../@core/data/upload.service';
   selector: 'ngx-create-post',
   templateUrl: './create-post.component.html',
   styleUrls: ['./create-post.component.scss'],
-  providers: [UploadService],
 })
 export class CreatePostComponent implements OnInit {
   public id: string;
-  public post: Post;
+  public post: any;
   public postRef: AngularFireObject<Post>;
   selectedFiles: FileList;
   currentUpload: Upload;
@@ -29,7 +28,7 @@ export class CreatePostComponent implements OnInit {
     this.activatedRoute.params.map(params => params['id']).subscribe((id) => this.id = id);
     this.postRef = this.db.object('blog/' + this.id);
     this.postRef.valueChanges().subscribe(res => {
-      //    this.post = new Post(res.user); 
+          this.post = res; 
     });
 
   }
